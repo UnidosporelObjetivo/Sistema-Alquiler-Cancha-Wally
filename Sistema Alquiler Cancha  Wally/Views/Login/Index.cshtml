@@ -51,8 +51,8 @@
         </div>
         <div class="logreg-box">
             <div class="form-box login">
-                <form asp-action="LoguinController1" asp-controller="Loguin" method="post">
-                    <h2>Iniciar sesion</h2>
+                <form  asp-action="LoguinController1" asp-controller="LoguinController1" method="post">
+                    <h2>Iniciar sesión</h2>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                         <input type="email" id="email" name="email" required>
@@ -68,16 +68,15 @@
 
                     </div>
                     <button class="btn" type="submit">Iniciar sesion</button>
-
+                    @if (TempData["LoginError"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["LoginError"]</div>
+                    }
                 </form>
             </div>
         </div>
 
     </div>
-    @if (TempData["LoguinError"] != null)
-    {
-        <div class="alert alert-danger">@TempData["LoguinError"]</div>
-    }
     <script src="script.js"></script>
 
     <style>
